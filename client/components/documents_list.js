@@ -46,5 +46,6 @@ class DocumentsList extends Component {
 
 export default withTracker(() => {
   Meteor.subscribe('documents');
+  Meteor.subscribe('sharedDocuments');
   return { documents: Documents.find({}).fetch() };
 })(DocumentsList);

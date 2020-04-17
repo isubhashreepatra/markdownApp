@@ -16,6 +16,11 @@ Meteor.methods({
 
   'documents.update': function (doc, newContent) {
     return Documents.update(doc._id, { $set: { content: newContent } });
+  },
+
+  'document.share': function (doc, emailId) {
+    console.log(emailId);
+    return Documents.update(doc._id, { $push: { sharedWith: emailId } });
   }
 });
 
